@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  zoneit:
+    image: ${IMAGE_NAME}
+    container_name: ${API_CONTAINER_NAME}
+    command: bash -c "uvicorn listing_reservation_system.asgi:application --host 0.0.0.0 --port 8000"
+    restart: always
+    ports:
+      - ${API_DEPLOYMENT_PORT}
