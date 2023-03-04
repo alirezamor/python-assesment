@@ -1,0 +1,11 @@
+Listing Reservation System Overview
+
+{% for listing in listings %}
+{{ listing.name }}
+{% for room in listing.rooms.all %}
+Room {{ room.number }}
+{% for reservation in room.reservations.all %}
+{{ reservation.name }}: {{ reservation.start_time }} - {{ reservation.end_time }}
+{% endfor %}
+{% endfor %}
+{% endfor %}

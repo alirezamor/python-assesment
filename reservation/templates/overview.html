@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listing Reservation System Overview</title>
+  </head>
+  <body>
+    <h1>Listing Reservation System Overview</h1>
+    {% for listing in listings %}
+      <h2>{{ listing.name }}</h2>
+      <ul>
+        {% for room in listing.rooms.all %}
+          <li>Room {{ room.number }}</li>
+          <ul>
+            {% for reservation in room.reservations.all %}
+              <li>{{ reservation.name }}: {{ reservation.start_time }} - {{ reservation.end_time }}</li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </body>
+</html>
