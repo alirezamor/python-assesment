@@ -6,9 +6,6 @@ class Listing(models.Model):
     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
 
-    # def __str__(self) -> str:
-    #     return self.name
-
 
 class Room(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name='rooms')
@@ -20,6 +17,3 @@ class Reservation(models.Model):
     name = models.CharField(max_length=200)
     start_time = models.DateTimeField(format)
     end_time = models.DateTimeField()
-
-    # def __str__(self) -> str:
-    #     return self.name

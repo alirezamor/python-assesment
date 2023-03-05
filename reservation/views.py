@@ -1,13 +1,9 @@
-from django.shortcuts import render
-
-from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from rest_framework.generics import get_object_or_404
 from rest_framework.views import APIView
-from .models import Listing, Room, Reservation
 
 from django.shortcuts import render
-from .models import Listing, Room, Reservation
+from .models import Listing
 from .serializers import *
 
 
@@ -39,6 +35,7 @@ def overview(request):
     reservations = Reservation.objects.all()
     context = {'listings': listings, 'reservations': reservations}
     return render(request, 'overview.html', context)
+
 
 def overview_text(request):
     listings = Listing.objects.all()
